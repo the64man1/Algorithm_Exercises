@@ -1,8 +1,9 @@
 // Checks if two strings are anagrams
+// Assume both strings are only lower alpha characters
 
-const validAnagram = (str1, str2) => {
-	if(str1.length !== str2.length) {
-  	return console.log(false)
+function validAnagram(str1, str2){
+  if(str1.length !== str2.length) {
+  	return false;
   }
   let freqCounter1 = {};
   let freqCounter2 = {};
@@ -14,11 +15,11 @@ const validAnagram = (str1, str2) => {
   }
   for (let key in freqCounter1) {
   	if(!(key in freqCounter2)) {
-    	return console.log(false);
-    };
-    if(freqCounter1[key] !== freqCounter2[key]) {
-    	return console.log(false);
+    	return false;
     }
-  };
-  return console.log(true);
+    if(freqCounter1[key] !== freqCounter2[key]) {
+    	return false;
+    }
+  }
+  return true;
 }

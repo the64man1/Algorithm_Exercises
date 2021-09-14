@@ -9,7 +9,7 @@ const sameFrequency = (num1, num2) => {
   	return false;
   }
   
-	let freqCounter1 = {};
+  let freqCounter1 = {};
   let freqCounter2 = {};
   
   for (let digit of stringNum1) {

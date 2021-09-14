@@ -6,8 +6,7 @@ const sameFrequency = (num1, num2) => {
   const stringNum2 = String(num2);
   
   if (stringNum1.length !== stringNum2.length) {
-  	console.log(false);
-    return
+  	return false;
   }
   
 	let freqCounter1 = {};

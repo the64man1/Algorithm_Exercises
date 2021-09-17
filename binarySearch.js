@@ -4,14 +4,14 @@ function binarySearch(arr, target){
   let left = 0;
   let right = arr.length - 1;
   
-  while (left < right) {
+  while (left <= right) {
   	let middle = Math.ceil((left + right)/2);
   	if (arr[middle] === target) {
   	    return middle;
   	} else if (arr[middle] > target) {
-  	    right--;
+  	    right = middle - 1;
   	} else {
-  	    left++;
+  	    left = middle + 1;
   	}
   }
   return -1;

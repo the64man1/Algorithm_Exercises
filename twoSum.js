@@ -6,19 +6,22 @@
  * @param {number} target
  * @return {number[]}
  */
+
 var twoSum = function(nums, target) {
     let found = false;
-    let numsCopy = [...nums];
     let pointer = 0;
-    let value = target - nums[pointer];
     while (!found) {
-        numsCopy.splice(pointer, 1);
-        if (numsCopy.includes(value)) {
+        let tail = nums.slice(pointer + 1)
+        let value = target - nums[pointer];
+        if (tail.includes(value)) {
             found = true;
+            break;
         } else {
             pointer++;
         }
     }
-    const secondIndex = nums.indexOf(value);
+    let value = target - nums[pointer];
+    nums[pointer] = null;
+    let secondIndex = nums.indexOf(value);
     return [pointer, secondIndex];
 };

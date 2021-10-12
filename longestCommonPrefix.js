@@ -5,20 +5,19 @@
  */
 var longestCommonPrefix = function(strs) {
     if (strs.length === 1) return strs[0];
-    strs.sort(function(a,b){return a.length - b.length});
-    maxLength = strs[0].length;
-    strs.filter(function(str) {return str.length === maxLength})
-    for (let i = 0; i < strs.length; i++) {
-        let head = strs[0].split('');
-        if(!strs[i].startsWith(head[0])) {
-            return "";
+    const sortStrs = strs.sort((a,b) => a.length - b.length)
+    if (sortStrs[0] === "") return "";
+    const firstStrSplit = sortStrs[0].split('');
+    let arr = [];
+    for (let i = 1; i < firstStrSplit.length + 1; i++) {
+        let head = firstStrSplit.slice(0, i).join('');
+        arr.push(head);
+        for (let j = 0; j < strs.length; j++) {
+            if (!strs[j].startsWith(head)) {
+                arr.pop();
+                return arr.length === 0 ? "" : arr.pop();
+            }
         }
     }
-    for (let i = 0; i < strs.length; i++) {
-        let head = strs[0].slice(0,i+1);
-        if (!strs[i].startsWith(head)) {
-            return strs[i].slice(0,i);
-        }
-    }
-    return strs[0];
+    return sortStrs[0];
 };

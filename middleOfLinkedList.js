@@ -19,7 +19,6 @@ var middleNode = function(head) {
         headCopy = headCopy.next;
     }
     let halfLen = Math.floor((lengthCount/2));
-    //console.log(halfLen)
     while (halfLen > 0) {
         halfLen--;
         head = head.next;

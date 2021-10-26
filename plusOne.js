@@ -12,7 +12,7 @@ var plusOne = function(digits) {
         if (i === 0 && carriedOne && digits[i] === 9) {
             digits[i] = 0;
             digits.unshift(1);
-            return digits
+            return digits;
         } else if (carriedOne && digits[i] < 9) {
             digits[i]++;
             return digits;
@@ -21,7 +21,7 @@ var plusOne = function(digits) {
             carriedOne = true;
         } else {
             digits[i]++;
-            return digits
+            return digits;
         }
     }
 };
